@@ -9,21 +9,8 @@ import Counter from './Components/Counter.jsx'
 function App() { 
   return <Counter/>
   const [showModal, setShowModal] = useState(false)
-  }
-
-  function onTodoDelete() {
-    setShowModal(true)
-    console.log('onTodoDelete')
-  }
-
-  function cancelModal() {
-    setShowModal(false)
-  }
-
-  function confirmModal() {
-    setShowModal(false)
-  }
   return (
+  
     <div>
    <Title />
    <div>
@@ -47,5 +34,20 @@ console.log (event.target.value)
 
   );
 }
+  
+
+  function onTodoDelete() {
+    setShowModal(true)
+    console.log('onTodoDelete')
+  }
+
+  function cancelModal() {
+    setShowModal(false)
+  }
+
+  function confirmModal() {
+    setShowModal(false)
+  }
+  
 
 export default App;
