@@ -3,25 +3,43 @@ import './App.css';
 import Todo from './Components/TODO.jsx';
 import Title from './Components/Title.jsx';
 import Modal from './Components/Modal.jsx'
+import React, {useState} from 'react'
+import Counter from './Components/Counter.jsx'
 
-function App() {
+function App() { 
+  return <Counter/>
+  const [showModal, setShowModal] = useState(false)
+  }
+
+  function onTodoDelete() {
+    setShowModal(true)
+    console.log('onTodoDelete')
+  }
+
+  function cancelModal() {
+    setShowModal(false)
+  }
+
+  function confirmModal() {
+    setShowModal(false)
+  }
   return (
     <div>
    <Title />
    <div>
-    <input onChange={(event) => {
+    <input type = "text" onChange={(event) => {
 console.log (event.target.value)
-    }} type="text" />
-    <button>
+    }}  />
+    <button onClick={() => setShowModal(true)}>
       Add Todo
     </button>
    </div>
     <div className='todo__wrapper'>
-    <Todo title="Finish Frontend Simplified" />
-   <Todo title="Finish Frontend Section" />
-   <Todo title="Land a $100k Job" />
+    <Todo onTodoDelete={onTodoDelete} title="Finish Frontend Simplified" />
+   <Todo onTodoDelete={onTodoDelete} title="Finish Frontend Section" />
+   <Todo onTodoDelete={onTodoDelete} title="Land a $100k Job" />
    </div>
-   { <Modal title="Are you sure you want to add?"/> }
+   {showModal && <Modal cancelModal={cancelModal} confirmModal={confirmModal} title="Confirm Delete"/> }
    
    
    
