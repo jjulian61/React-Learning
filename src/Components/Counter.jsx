@@ -11,7 +11,7 @@ function Counter () {
     }
     return (
         <div>
-            <buton onClick={decrementCounter}>-</button>
+            <button onClick={decrementCounter}>-</button>
             {counter}
             <button onClick={incrementCounter}>+</button>
         </div>
